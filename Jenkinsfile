@@ -5,7 +5,7 @@ pipeline {
         maven 'maven3'
     }
     environment {
-             SCANNER_HOME= tool'sonar-scanner'
+             SCANNER_HOME=tool'sonar-scanner'
           }
 
     stages {
@@ -31,8 +31,7 @@ pipeline {
         }
         stage('Static code analysis') {
             steps {
-                script{
-                    withSonarQubeEnv('sonar-server') {    
+                    withSonarQubeEnv('Sonar-server') {    
                         sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Onlineshopping \
                          -Dsonar.projectKey=Onlineshopping'''
                                
