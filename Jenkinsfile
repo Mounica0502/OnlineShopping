@@ -4,6 +4,10 @@ pipeline {
         jdk 'OracleJDK8'
         maven 'maven3'
     }
+    environment {
+             scannerHome= tool'sonar-scanner'
+          }
+
     stages {
         stage('Git checkout') {
             steps {
@@ -29,8 +33,9 @@ pipeline {
             steps {
                 script{
                     withSonarQubeEnv(credentialsId: 'Sonar-token') {    
-                    sh 'mvn clean package sonar:sonar'
-                }
+                        sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=onlineshopping -Dsonar.projectKey=onlineshopping \
+                                -Dsonar.java.binaries=. '''
+                  }
                 }
                 
             }
