@@ -5,7 +5,7 @@ pipeline {
         maven 'maven3'
     }
     stages {
-        stage(Git checkout) {
+        stage('Git checkout') {
             steps {
                 git branch: 'ci-jenkins', url: 'https://github.com/Mounica0502/Onlineshopping.git'
             }
