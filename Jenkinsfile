@@ -29,16 +29,14 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Static code analysis') {
-            steps {
-                    withSonarQubeEnv('Sonar-server') {    
-                        sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Onlineshopping \
-                         -Dsonar.projectKey=Onlineshopping'''
-                               
-                  }
+        stage("Sonarqube Analysis "){
+            steps{
+                withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Onlineshopping \
+                    -Dsonar.projectKey=Onlineshopping '''
                 }
-                
             }
+        }
         
     }
 }
