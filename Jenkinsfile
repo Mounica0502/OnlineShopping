@@ -32,7 +32,7 @@ pipeline {
         stage('Static code analysis') {
             steps {
                 script{
-                    withSonarQubeEnv(credentialsId: 'Sonar-token') {    
+                    withSonarQubeEnv('sonar-server') {    
                         sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Onlineshopping \
                          -Dsonar.projectKey=Onlineshopping'''
                                
