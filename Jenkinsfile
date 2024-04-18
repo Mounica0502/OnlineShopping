@@ -33,8 +33,9 @@ pipeline {
             steps {
                 script{
                     withSonarQubeEnv(credentialsId: 'Sonar-token') {    
-                        sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Onlineshopping -Dsonar.projectKey=Onlineshopping \
-                                -Dsonar.java.binaries=. '''
+                        sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Onlineshopping \
+                         -Dsonar.projectKey=Onlineshopping'''
+                               
                   }
                 }
                 
