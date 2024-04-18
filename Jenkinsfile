@@ -2,7 +2,7 @@ pipeline {
 
     agent any
 
-}
+
 
 stages {
 
@@ -12,4 +12,5 @@ stages {
         git branch: 'ci-jenkins', url: 'https://github.com/Mounica0502/Onlineshopping.git'
         }
     }
+}
 }
